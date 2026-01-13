@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="container"> 
+
+        <div id="left">
+            <div id="login">
+                <form method="post" name="myform"  onsubmit="return validateform()">
+              <fieldset>
+                <legend>
+                    Create an account
+                </legend>
+
+                <label for="fullname">Fullname</label> <br>
+                <input type="text" id="fullname1" name="fullname1"> <br><br>
+
+                <label for="email">Email</label> <br>
+                <input type="email" name="" id="email1" name="email1"> <br><br>
+
+                <label for="password">Password</label> <br>
+                <input type="password" name="" id="password" name="password"  oninput="check()"> <br><br>
+
+                <label for="retype password">Retype Password</label>
+                <br>
+                <input type="password" id="password2" name="password2" oninput="check()"> 
+                <span id="error"></span>
+                <br><br>
+
+                <button>Submit</button>
+
+
+                <script type="text/javascript">
+                    function validateform() {
+                        let fullname1 = document.getElementById("fullname1").value;
+                        let email1 = document.getElementById("email1").value;
+                        let password = document.getElementById("password").value;
+                        let password2 = document.getElementById("password2").value;
+
+                        if (fullname1==null || fullname1=="") {
+                            alert("fullname cannot be empty")
+                            return false
+                        }
+                        if (email1==null || email1=="") {
+                            alert("email cannot be empty")
+                            return false
+                        }
+                        if (password==null || password=="") {
+                            alert("password cannot be empty")
+                            return false
+                        }
+                        if (password2==null || password2=="") {
+                            alert("password cannot be empty")
+                            return false
+                        }
+
+                        alert(`Dear ${fullname1} your email address is ${email1} while your password is ${password}`)
+                    }
+
+
+
+                    function check() {
+                        let password = document.getElementById("password").value;
+                        let password2 = document.getElementById("password2").value;
+
+                        if (password2 != password){
+                            document.getElementById("error").innerHTML = "password does not match";
+                            document.getElementById("error").style.color = "red";
+                        }
+                        
+                        else{
+                            document.getElementById("error").innerHTML = "password matches correctly!";
+                            document.getElementById("error").style.color = "green";
+                        }
+                    }
+                </script>
+              </fieldset>
+            </form>
+            </div>
+        </div>
+
+        <div id="right">
+
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
